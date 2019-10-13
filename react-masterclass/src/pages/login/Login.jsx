@@ -1,9 +1,10 @@
 import React from "react";
+import Logo from "../../components/common/Logo"
 
 const Login = () => {
   return (
     <section>
-      <h1>SWAPP</h1>
+      <Logo/>
       <form className="form-group">
         <div>
           <input type="text" />
