@@ -4,9 +4,11 @@ import './App.css';
 
 import Login from './pages/login/Login';
 import Episodes from './pages/episodes/Episodes';
-import Characters from './pages/characters/Characters'
+import Characters from './pages/characters/Characters';
+import Starships from './pages/starships/Starships';
+import Navbar from './components/common/Navbar';
 
-const App = (props) => {
+const App = () => {
   let isLoggedIn = false;
 
   return (
@@ -19,6 +21,7 @@ const App = (props) => {
           path="/login"
           component={Login}
         />
+        <Navbar/>
         <Route
           path="/episodes"
           component={Episodes}
@@ -29,7 +32,7 @@ const App = (props) => {
         />
         <Route
           path="/starships"
-          component={Characters}
+          component={Starships}
         />
       </Switch>
     </Router>
