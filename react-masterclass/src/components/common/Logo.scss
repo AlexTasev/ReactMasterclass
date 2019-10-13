@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'LogoFont';
+    src: local('LogoFont'),
+        url(../../resources/fonts/SfDistantGalaxy-0l3d.ttf) format('truetype');
+}
+
+nav {
+    background-color: black;
+    display: flex;
+
+    a {
+        text-align: justify;
+    }
+}
+
+.logo {
+    font-family: LogoFont, Arial, Helvetica, sans-serif;
+    color: #FFE300;
+    font-size: 55px;
+}
