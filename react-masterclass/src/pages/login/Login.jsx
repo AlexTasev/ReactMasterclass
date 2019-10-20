@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import Logo from "../../components/common/Logo";
 
 const Login = ({ signInUser }) => {
@@ -12,7 +13,7 @@ const Login = ({ signInUser }) => {
 
     if (userEmail && userPassword) {
       const user = { email: userEmail, password: userPassword };
-      console.log(user);
+      signInUser(user);
     } else {
       credebtialsError = true;
     }

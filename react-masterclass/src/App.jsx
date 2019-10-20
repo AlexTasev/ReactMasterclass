@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Switch,
   Route,
@@ -14,7 +14,14 @@ import Starships from "./pages/starships/Starships";
 import Navbar from "./components/common/Navbar";
 
 const App = () => {
+  const [user, setUser] = useState({ email: "", password: "" });
   let isLoggedIn = false;
+
+  const signInUser = data => {
+    setUser(data);
+    isLoggedIn = true;
+    console.log(user, isLoggedIn);
+  };
 
   return (
     <Router>
@@ -32,7 +39,10 @@ const App = () => {
         ) : (
           <>
             <Redirect to="/login" />
-            <Route path="/login" component={Login} />
+            <Route
+              path="/login"
+              render={() => <Login signInUser={signInUser} />}
+            />
           </>
         )}
       </Switch>
