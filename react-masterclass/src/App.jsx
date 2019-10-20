@@ -14,7 +14,7 @@ import Starships from "./pages/starships/Starships";
 import Navbar from "./components/common/Navbar";
 
 const App = () => {
-  let isLoggedIn = true;
+  let isLoggedIn = false;
 
   return (
     <Router>

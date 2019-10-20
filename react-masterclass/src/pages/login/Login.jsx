@@ -1,19 +1,48 @@
-import React from "react";
-import Logo from "../../components/common/Logo"
+import React, { useState } from "react";
+import Logo from "../../components/common/Logo";
 
-const Login = () => {
+const Login = ({ signInUser }) => {
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  let credebtialsError = false;
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    if (userEmail && userPassword) {
+      const user = { email: userEmail, password: userPassword };
+      console.log(user);
+    } else {
+      credebtialsError = true;
+    }
+  };
+
   return (
     <section>
-      <Logo/>
-      <form className="form-group">
+      <Logo />
+      {credebtialsError && <div className="error">Invalid credentials!</div>}
+      <form className="form-group" onSubmit={handleSubmit}>
         <div>
-          <input type="text" />
+          <input
+            type="email"
+            name="email"
+            value={userEmail}
+            placeholder="email"
+            onChange={e => setUserEmail(e.target.value)}
+          />
         </div>
         <div>
-          <input type="password" />
+          <input
+            type="password"
+            name="password"
+            value={userPassword}
+            placeholder="password"
+            onChange={e => setUserPassword(e.target.value)}
+          />
         </div>
         <div>
-          <button type="submit">Login</button>
+          <input type="submit" value="Login" />
         </div>
       </form>
     </section>
