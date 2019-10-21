@@ -6,7 +6,7 @@ const Login = ({ signInUser }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
-  let credebtialsError = false;
+  let credentialsError = false;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -15,14 +15,14 @@ const Login = ({ signInUser }) => {
       const user = { email: userEmail, password: userPassword };
       signInUser(user);
     } else {
-      credebtialsError = true;
+      credentialsError = true;
     }
   };
 
   return (
     <section>
       <Logo />
-      {credebtialsError && <div className="error">Invalid credentials!</div>}
+      {credentialsError && <div className="error">Invalid credentials!</div>}
       <form className="form-group" onSubmit={handleSubmit}>
         <div>
           <input

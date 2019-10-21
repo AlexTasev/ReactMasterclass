@@ -14,13 +14,12 @@ import Starships from "./pages/starships/Starships";
 import Navbar from "./components/common/Navbar";
 
 const App = () => {
-  const [user, setUser] = useState({ email: "", password: "" });
-  let isLoggedIn = false;
+  const [user, setUser] = useState({});
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
-  const signInUser = data => {
-    setUser(data);
-    isLoggedIn = true;
-    console.log(user, isLoggedIn);
+  const signInUser = userData => {
+    setUser(userData);
+    setLoggedIn(true);
   };
 
   return (
