@@ -12,7 +12,7 @@ const SIGN_IN = gql`
   }
 `;
 
-const Login = (props) => {
+const Login = props => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
@@ -21,18 +21,14 @@ const Login = (props) => {
   const client = useApolloClient();
 
   const [login, { loading, error }] = useMutation(SIGN_IN, {
-    onCompleted: ({ signIn: token }) => {
-      localStorage.setItem("token", token.token);
+    onCompleted: ({ signIn: signInData }) => {
+      localStorage.setItem("token", signInData.token);
       client.writeData({ data: { authenticated: true } });
-      props.history.push("/episodes");  
     }
   });
 
   if (loading) return <span>Loading...</span>;
   if (error) return <p>An error occurred</p>;
-
-  if (localStorage.getItem("token"))
-    return <Redirect to="/episodes"></Redirect>;
 
   const handleSubmit = event => {
     event.preventDefault();
