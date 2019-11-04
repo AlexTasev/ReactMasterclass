@@ -5,7 +5,7 @@ import Logo from "./Logo"
 const Navbar = () => {
   return (
     <nav>
-      <Logo/>
+      <Logo fontSize={[12]} />
       <NavLink to="/episodes">Episodes</NavLink>
       <NavLink to="/characters">Characters</NavLink>
     </nav>

@@ -9,17 +9,14 @@ export const AUTHENTICATED_QUERY = gql`
   }
 `;
 
-const PrivateRoute = props => {
+const ProtectedRoute = props => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
 
   return data.authenticated ? (
     props.children
   ) : (
-    <div>
-      <Login />
       <Redirect to={"/login"} />
-    </div>
   );
 };
 
-export default PrivateRoute;
+export default ProtectedRoute;
