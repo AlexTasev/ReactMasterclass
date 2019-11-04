@@ -1,10 +1,11 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Episode from "./episodes/Episode-item";
+import { useQuery } from "@apollo/react-hooks";
+import EpizodeItem from "./episodes/Episode-item";
 import Episodes from "./episodes/Episodes";
 import Characters from "./characters/Characters";
 import Character from "./characters/Character-Item";
-import PrivateRoute from "../components/common/PrivateRoute";
+import ProtectedRoute from "../components/common/ProtectedRoute";
 import gql from "graphql-tag.macro";
 
 export const AUTHENTICATED_QUERY = gql`
@@ -14,19 +15,17 @@ export const AUTHENTICATED_QUERY = gql`
 `;
 
 const Pages = () => {
+  const { data } = useQuery(AUTHENTICATED_QUERY);
+
   return (
     <Switch>
-      <PrivateRoute>
-        <Route path="/episodes/:episodeId" component={Episode} />
+      <ProtectedRoute>
+        <Route path="/episodes/:episodeId" component={EpizodeItem} />
         <Route path="/characters/:characterId" component={Character} />
         <Route path="/episodes" component={Episodes} exact />
         <Route path="/characters" component={Characters} exact />
-        <Route
-          path="/"
-          exact
-          component={() => <Redirect to="/episodes" />}
-        />
-      </PrivateRoute>
+        <Route path="/" exact component={() => <Redirect to="/episodes" />} />
+      </ProtectedRoute>
     </Switch>
   );
 };

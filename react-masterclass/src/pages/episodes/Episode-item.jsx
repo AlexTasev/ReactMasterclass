@@ -1,30 +1,7 @@
 import React from "react";
 
 const EpizodeItem = () => {
-  return (
-    <section>
-      <img></img>
-      <div className="title">Some Episode</div>
-      <div className="descrtiption">
-        Some Random descrtiption to check if it works Some Random descrtiption
-        to check if it works Some Random descrtiption to check if it works Some
-        Random descrtiption to check if it works Some Random descrtiption to
-        check if it works Some Random descrtiption to check if it works Some
-        Random descrtiption to check if it works Some Random descrtiption to
-        check if it works Some Random descrtiption to check if it works Some
-        Random descrtiption to check if it works Some Random descrtiption to
-        check if it works Some Random descrtiption to check if it works Some
-        Random descrtiption to check if it works Some Random descrtiption to
-        check if it works Some Random descrtiption to check if it works Some
-        Random descrtiption to check if it works Some Random descrtiption to
-        check if it works Some Random descrtiption to check if it works Some
-        Random descrtiption to check if it works Some Random descrtiption to
-        check if it works Some Random descrtiption to check if it works Some
-        Random descrtiption to check if it works Some Random descrtiption to
-        check if it works Some Random descrtiption to check if it works
-      </div>
-    </section>
-  );
+  return <h1>Episode Link Works!</h1>
 };
 
 export default EpizodeItem;
