@@ -1,22 +1,55 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { Box, Heading, Link, Text, Image, Button, Flex, Card } from "rebass";
+import { Box, Heading, Text, Image, Button, Flex, Card } from "rebass";
 import { romanize } from "../../utils/helpers";
 import { EPISODE_QUERY } from "../../client/queries";
 
 const Episode = () => {
   let { episodeId } = useParams();
 
-  const { data, loading, error } = useQuery(EPISODE_QUERY, {
-    variables: { episodeId }
+  const { data, loading, error, fetchMore } = useQuery(EPISODE_QUERY, {
+    variables: { episodeId, first: 5 }
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Some Error Occured</p>;
 
-  const { ...episode } = data.episode;
-  const characters = episode.people.edges.slice(5);
+  const {
+    episode,
+    episode: {
+      people: {
+        pageInfo: { hasNextPage, endCursor }
+      }
+    }
+  } = data;
+
+  const characters = episode.people.edges;
+
+  const loadMoreCharacters = () => {
+    fetchMore({
+      variables: {
+        first: 5,
+        after: endCursor
+      },
+      updateQuery: (prev, { fetchMoreResult: { episode } }) => {
+        if (!hasNextPage) {
+          return prev;
+        }
+
+        return {
+          episode: {
+            ...episode,
+            people: {
+              ...prev.episode.people,
+              ...episode.people,
+              edges: [...prev.episode.people.edges, ...episode.people.edges]
+            }
+          }
+        };
+      }
+    });
+  };
 
   return (
     <Card
@@ -62,7 +95,7 @@ const Episode = () => {
           </Flex>
         ))}
       </Box>
-      <Button>Load more ...</Button>
+      <Button onClick={loadMoreCharacters}>Load more ...</Button>
     </Card>
   );
 };

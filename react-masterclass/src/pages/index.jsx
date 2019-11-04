@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
 import EpizodeItem from "./episodes/Episode-item";
 import Episodes from "./episodes/Episodes";
 import Characters from "./characters/Characters";
@@ -15,7 +14,7 @@ export const AUTHENTICATED_QUERY = gql`
 `;
 
 const Pages = () => {
-  const { data } = useQuery(AUTHENTICATED_QUERY);
+  // const { data } = useQuery(AUTHENTICATED_QUERY);
 
   return (
     <Switch>

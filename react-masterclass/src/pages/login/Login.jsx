@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import gql from "graphql-tag";
 import { useApolloClient, useMutation } from "@apollo/react-hooks";
 import Logo from "../../components/common/Logo";

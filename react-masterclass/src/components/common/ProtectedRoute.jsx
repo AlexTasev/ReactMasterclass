@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { Redirect } from "react-router-dom";
 import gql from "graphql-tag.macro";
-import Login from "../../pages/login/Login";
+
 export const AUTHENTICATED_QUERY = gql`
   query IsAuthenticated {
     authenticated @client

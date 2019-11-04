@@ -18,7 +18,7 @@ export const ALL_EPISODES_QUERY = gql `
   `;
 
 export const EPISODE_QUERY = gql `
-    query EpisodeQuery($episodeId: ID!) {
+    query EpisodeQuery($episodeId: ID!, $first: Int!, $after: String) {
       episode(id: $episodeId) {
         id
         title
@@ -27,8 +27,12 @@ export const EPISODE_QUERY = gql `
         director
         releaseDate
         openingCrawl
-        people {
+        people(first: $first, after: $after) {
           totalCount
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
           edges {
             cursor
             node {

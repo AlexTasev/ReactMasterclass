@@ -1,39 +1,17 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
 import { Link as RouterLink } from "react-router-dom";
-import { Box, Heading, Link, Text, Image, Button } from "rebass";
+import { Box, Heading, Link, Text, Image } from "rebass";
 import { Tiles } from "@rebass/layout";
 import { ALL_EPISODES_QUERY } from "../../client/queries";
 
 const Episodes = () => {
-  const hasMore = false;
-
   const { loading, error, data } = useQuery(ALL_EPISODES_QUERY, {
-    variables: { first: 6 }
+    variables: { first: 30 }
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error on getting all episodes</p>;
-
-  // const loadMoreEpisodes = () => {
-  //   fetchMore({
-  //     variables: {
-  //       after: cursor
-  //     },
-  //     updateQuery: (prev, { fetchMoreResult: { allEpisodes } }) => {
-  //       if (!allEpisodes.episodes.length) {
-  //         return prev;
-  //       }
-
-  //       return {
-  //         allEpisodes: {
-  //           ...allEpisodes,
-  //           episodes: [...prev.allEpisodes.episodes, ...allEpisodes.episodes]
-  //         }
-  //       };
-  //     }
-  //   });
 
   return (
     <Box backgroundColor="#E8EAED">
@@ -70,11 +48,6 @@ const Episodes = () => {
           </Link>
         ))}
       </Tiles>
-      {hasMore && (
-        <Box m={3} textAlign="center">
-          {/* <Button onClick={loadMoreEpisodes}>Load More</Button> */}
-        </Box>
-      )}
     </Box>
   );
 };
