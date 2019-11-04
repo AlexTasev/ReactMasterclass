@@ -42,7 +42,7 @@ const Login = props => {
 
   return (
     <section>
-      <Logo />
+      <Logo fontSize={[8,9,10]} />
       {credentialsError && <div className="error">Invalid credentials!</div>}
       <form className="form-group" onSubmit={handleSubmit}>
         <div>

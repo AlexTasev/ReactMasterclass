@@ -4,25 +4,9 @@ import gql from "graphql-tag";
 import { Link as RouterLink } from "react-router-dom";
 import { Box, Heading, Link, Text, Image, Button } from "rebass";
 import { Tiles } from "@rebass/layout";
-import EpisodeItem from "./Episode-item";
+import { ALL_EPISODES_QUERY } from "../../client/queries";
 
 const Episodes = () => {
-  const ALL_EPISODES_QUERY = gql`
-    query AllEpisodesQuery($first: Int!) {
-      allEpisodes(first: $first) {
-        totalCount
-        edges {
-          node {
-            episodeId
-            title
-            image
-            openingCrawl
-          }
-        }
-      }
-    }
-  `;
-  
   const hasMore = false;
 
   const { loading, error, data } = useQuery(ALL_EPISODES_QUERY, {
@@ -58,17 +42,12 @@ const Episodes = () => {
           <Link
             as={RouterLink}
             variant="nav"
-            key={node.episodeId}
-            to={`/episodes/${node.episodeId}`}
+            key={node.id}
+            to={`/episodes/${node.id}`}
+            id={node.id}
             backgroundColor="white"
             margin="4"
           >
-            <EpisodeItem
-              key={node.episodeId}
-              width={150}
-              height={300}
-              {...node}
-            />
             <Image
               src={node.image}
               sx={{

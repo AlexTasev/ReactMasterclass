@@ -1,8 +1,17 @@
 import React from "react";
-import "./Logo.scss";
+import { Text } from "rebass";
+import "./common.scss";
 
 const Logo = () => {
-  return <span className="logo">SWAPP</span>;
+  return (
+    <Text
+      fontWeight="bold"
+      fontFamily="LogoFont"
+      color="#FFE300"
+    >
+      SWAPP
+    </Text>
+  );
 };
 
 export default Logo;
