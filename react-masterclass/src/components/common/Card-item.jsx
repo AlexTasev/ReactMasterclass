@@ -1,7 +1,5 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Heading, Link, Image, Flex, Box } from "rebass";
-import { Tiles } from "@rebass/layout";
+import { Heading, Image, Flex } from "rebass";
 
 const CardItem = ({ name, image }) => {
   return (
