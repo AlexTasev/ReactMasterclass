@@ -1,9 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { Box, Heading, Text, Image, Button, Flex, Card } from "rebass";
+import { Tiles } from "@rebass/layout";
+import { Box, Heading, Text, Image, Button, Flex, Card, Link } from "rebass";
 import { romanize } from "../../utils/helpers";
-import { EPISODE_QUERY } from "../../client/queries";
+import { EPISODE_QUERY } from "../../client/queries/episode-queries";
+import CardItem from "../../components/common/Card-item";
 
 const Episode = () => {
   let { episodeId } = useParams();
@@ -52,7 +55,7 @@ const Episode = () => {
   };
 
   return (
-    <Card
+    <Box
       width={[400, 600, 800, 1000]}
       height="100%"
       mx="auto"
@@ -77,26 +80,28 @@ const Episode = () => {
         <Text pt={1.5}>Release date: {episode.releaseDate}</Text>
       </Box>
 
-      <Box key={characters.id}>
-        {characters.map(character => (
-          <Flex bg="white" flexDirection="row">
-            <Box key={character.node.id} width={1 / 3} p={1}>
-              <Image
-                src={character.node.image}
-                sx={{
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  marginBottom: 3,
-                  width: 150
-                }}
+      <Box backgroundColor="#E8EAED">
+        <Tiles columns={[1, 2, 3]} padding="3">
+          {characters.map(character => (
+            <Link
+              as={RouterLink}
+              variant="nav"
+              key={character.node.id}
+              to={`/characters/${character.node.id}`}
+              id={character.node.id}
+            >
+              <CardItem
+                key={character.node.id}
+                id={character.node.id}
+                name={character.node.name}
+                image={character.node.image}
               />
-              <Text>{character.node.name}</Text>
-            </Box>
-          </Flex>
-        ))}
+            </Link>
+          ))}
+        </Tiles>
       </Box>
       <Button onClick={loadMoreCharacters}>Load more ...</Button>
-    </Card>
+    </Box>
   );
 };
 
