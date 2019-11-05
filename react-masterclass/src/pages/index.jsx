@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import EpizodeItem from "./episodes/Episode-item";
+import Episode from "./episodes/Episode-details";
 import Episodes from "./episodes/Episodes";
 import Characters from "./characters/Characters";
-import Character from "./characters/Character-Item";
+import Character from "./characters/Character-details";
 import ProtectedRoute from "../components/common/ProtectedRoute";
 import gql from "graphql-tag.macro";
 
@@ -19,7 +19,7 @@ const Pages = () => {
   return (
     <Switch>
       <ProtectedRoute>
-        <Route path="/episodes/:episodeId" component={EpizodeItem} />
+        <Route path="/episodes/:episodeId" component={Episode} />
         <Route path="/characters/:characterId" component={Character} />
         <Route path="/episodes" component={Episodes} exact />
         <Route path="/characters" component={Characters} exact />

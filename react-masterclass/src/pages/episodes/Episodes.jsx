@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { Link as RouterLink } from "react-router-dom";
 import { Box, Heading, Link, Text, Image } from "rebass";
 import { Tiles } from "@rebass/layout";
-import { ALL_EPISODES_QUERY } from "../../client/queries";
+import { ALL_EPISODES_QUERY } from "../../client/queries/episode-queries";
 
 const Episodes = () => {
   const { loading, error, data } = useQuery(ALL_EPISODES_QUERY, {
