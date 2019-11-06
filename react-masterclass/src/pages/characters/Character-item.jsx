@@ -1,11 +1,10 @@
 import React from "react";
 import { Heading, Image, Flex } from "rebass";
 
-const CardItem = ({ name, image }) => {
+const CharacterItem = ({ name, image }) => {
   return (
     <Flex
       bg="white"
-      height="20"
       sx={{
         borderRadius: 10,
         justifyContent: "center",
@@ -38,4 +37,4 @@ const CardItem = ({ name, image }) => {
   );
 };
 
-export default CardItem;
+export default CharacterItem;
