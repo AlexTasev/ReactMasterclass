@@ -1,11 +1,13 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import gql from 'graphql-tag.macro';
 import Episode from "./episodes/Episode-details";
 import Episodes from "./episodes/Episodes";
 import Characters from "./characters/Characters";
 import Character from "./characters/Character-details";
+import Starship from "./starships/Starship"
 import ProtectedRoute from "../components/common/ProtectedRoute";
-import gql from "graphql-tag.macro";
+
 
 export const AUTHENTICATED_QUERY = gql`
   query IsAuthenticated {
@@ -23,6 +25,7 @@ const Pages = () => {
         <Route path="/characters/:characterId" component={Character} />
         <Route path="/episodes" component={Episodes} exact />
         <Route path="/characters" component={Characters} exact />
+        <Route path="/starships/:starshipId" component={Starship} />
         <Route path="/" exact component={() => <Redirect to="/episodes" />} />
       </ProtectedRoute>
     </Switch>
