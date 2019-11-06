@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { Box, Button, Link } from "rebass";
 import { Tiles } from "@rebass/layout";
 import { ALL_CHARACTERS } from "../../client/queries/character-queries";
-import CardItem from "../../components/common/Card-item";
+import CharacterItem from './Character-item';
 
 const Characters = () => {
   const { data, loading, error, fetchMore } = useQuery(ALL_CHARACTERS);
@@ -51,7 +51,7 @@ const Characters = () => {
             to={`/characters/${person.id}`}
             id={person.id}
           >
-            <CardItem
+            <CharacterItem
               key={person.id}
               id={person.id}
               name={person.name}

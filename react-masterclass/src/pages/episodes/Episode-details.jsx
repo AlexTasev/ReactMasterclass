@@ -6,7 +6,7 @@ import { Tiles } from "@rebass/layout";
 import { Box, Heading, Text, Image, Button, Flex, Link } from "rebass";
 import { romanize } from "../../utils/helpers";
 import { EPISODE_QUERY } from "../../client/queries/episode-queries";
-import CardItem from "../../components/common/Card-item";
+import CharacterItem from '../characters/Character-item';
 
 const Episode = () => {
   let { episodeId } = useParams();
@@ -74,7 +74,7 @@ const Episode = () => {
           </Box>
         </Flex>
       </Box>
-      <Box bg="white" sx={{ width: "100%", marginTop: "10px" }}>
+      <Box bg="white" sx={{ width: '100%', marginTop: '10px' }}>
         {episode.openingCrawl}
         <Text pt={3}>Director: {episode.director}</Text>
         <Text pt={1.5}>Release date: {episode.releaseDate}</Text>
@@ -90,7 +90,7 @@ const Episode = () => {
               to={`/characters/${character.node.id}`}
               id={character.node.id}
             >
-              <CardItem
+              <CharacterItem
                 key={character.node.id}
                 id={character.node.id}
                 name={character.node.name}
