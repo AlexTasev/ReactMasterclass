@@ -1,16 +1,19 @@
-import React from "react";
-import { Text } from "rebass";
-import "./common.scss";
+import React, {useContext} from 'react';
+import { Box } from 'rebass';
+import {ThemeContext} from '../../style/themeContext'
+import './common.scss';
 
 const Logo = () => {
+  const { toggleTheme } = useContext(ThemeContext);
   return (
-    <Text
+    <Box
       fontWeight="bold"
       fontFamily="LogoFont"
       color="#FFE300"
+      onClick={toggleTheme}
     >
       SWAPP
-    </Text>
+    </Box>
   );
 };
 

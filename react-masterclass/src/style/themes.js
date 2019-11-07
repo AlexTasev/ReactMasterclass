@@ -31,34 +31,34 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-    
     yellow: '#FFE300',
     lightBlue: '#4BD5EE',
     black: '#000',
     white: '#FFF',
-    
+
     background: '#000',
     fontColor: '#ABB1BA',
-    
+
     cardBorderColor: '#3C4858',
     cardBackground: '#333',
     cardTitle: '#4BD5EE',
-    
+
     buttonBackground: '#4BD5EE',
     buttonBorderColor: '#4BD5EE',
     buttonFontColor: '#FFE300',
-  
+
     inputBackground: '#FFF',
     inputBorderColor: '#333',
     inputFontColor: '#4BD5EE',
- 
+
     appBarBackground: '#3C4858',
     appBarBorderColor: '#333',
     appBarFontColor: '#4BD5EE',
     appBarExitBackground: '#3C4858',
-   
+
     primaryHeadingFontColor: '#FFE300',
     secondaryHeadingFontColor: '#4BD5EE',
-   
+
     lineColor: '#000',
+
 };
