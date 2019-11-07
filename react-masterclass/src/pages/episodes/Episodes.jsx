@@ -23,35 +23,47 @@ const Episodes = () => {
             key={node.id}
             to={`/episodes/${node.id}`}
             id={node.id}
-            backgroundColor="white"
             p={0}
             m={[1, 2, 5]}
             sx={{
               borderRadius: 20,
               ':hover': {
-                boxShadow: '20px 20px 20px grey',
+                boxShadow: '20px 20px 20px #333',
               },
             }}
           >
-            <Image
-              src={node.image}
-              sx={{
-                width: ['100%'],
-                borderTopLeftRadius: 20,
-                borderTopRightRadius: 20,
-                mb: 3,
-              }}
-            />
-            <Box>
-              <Heading fontSize={[3, 4, 5]} color="#4BD5EE" p={[1, 2, 3]}>
+            <Box
+              height="100%"
+              sx={theme => ({
+                backgroundColor: theme.cardBackground,
+                border: '1px solid #E8EAED',
+                borderRadius: 20,
+              })}
+            >
+              <Image
+                src={node.image}
+                sx={{
+                  width: ['100%'],
+                  borderTopLeftRadius: 20,
+                  borderTopRightRadius: 20,
+                }}
+              />
+              <Heading
+                fontSize={[3, 4, 5]}
+                fontFamily="StarWars"
+                fontWeight="normal"
+                fontColor
+                p={[1, 2, 3]}
+                sx={theme => ({ color: theme.primaryHeadingFontColor })}
+              >
                 {node.title}
               </Heading>
               <Text
                 fontSize={[1, 2, 3]}
                 fontWeight="normal"
-                color="#4E5B6E"
                 p={[1, 2, 3]}
                 pt={[2, 3, 4]}
+                sx={theme => ({ color: theme.fontColor })}
               >
                 {node.openingCrawl.substring(0, 300) + '...'}
               </Text>

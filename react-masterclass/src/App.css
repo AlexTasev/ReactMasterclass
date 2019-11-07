@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'StarWars';
+    src: local('StarWars'),
+        url(./style/fonts/SfDistantGalaxy-0l3d.ttf) format('truetype');
+}
+
+h1, h2, h3 {
+    font-family: 'StarWars';
+}
+
 a {
   text-decoration: none;
 }

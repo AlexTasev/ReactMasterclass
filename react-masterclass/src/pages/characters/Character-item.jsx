@@ -10,13 +10,13 @@ const CharacterItem = ({ name, image }) => {
   return (
     <Flex
       alignItems="center"
-      bg="white"
-      sx={{
+      sx={theme => ({
+        backgroundColor: theme.cardBackground,
         borderRadius: 20,
         ':hover': {
-          boxShadow: '20px 20px 20px grey',
+          boxShadow: '20px 20px 20px theme.cardBackground',
         },
-      }}
+      })}
     >
       <Image
         src={image}
@@ -32,11 +32,16 @@ const CharacterItem = ({ name, image }) => {
 
       <Heading
         fontSize={[1, 2, 3]}
-        color="#4BD5EE"
         width={2 / 3}
+        height="100%"
         px={3}
         textAlign="center"
+        fontFamily="StarWars"
+        fontWeight="normal"
         py="3"
+        sx={theme => ({
+          color: theme.primaryHeadingFontColor
+        })}
       >
         {name}
       </Heading>

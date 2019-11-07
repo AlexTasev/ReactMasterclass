@@ -17,7 +17,12 @@ const Home = () => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
 
   return (
-    <Box width={1} m="auto" sx={theme => ({ backgroundColor: theme.background})}>
+    <Box
+      width="100%"
+      height="100%"
+      m={0}
+      sx={theme => ({ backgroundColor: theme.background })}
+    >
       {data.authenticated ? (
         <>
           <Navbar />

@@ -20,22 +20,140 @@ const Character = () => {
   const {
     person: { name, image, height, mass, species, homeworld, starships },
   } = data;
+
   return (
-    <Box width={[400, 600, 800, 1000]} height="100%" mx="auto" my={[1, 2, 4]}>
-      <Heading>{name}</Heading>
-      <Tiles columns={[1, 2]} backgroundColor="#E8EAED">
-        <Card width="1/2" sx={{ borderRadius: 20 }} >
-          <Heading textAlign="center" pt={2}>{name}</Heading>
-          <Box p={4}>
+    <Box width={[400, 600, 800, 1000]} height="100%" mx="auto" mt={[1, 2, 4]} pb={5}>
+      <Heading
+        p={3}
+        fontSize={[3, 4, 5]}
+        fontFamily="StarWars"
+        fontWeight="normal"
+        textAlign="center"
+        sx={theme => ({
+          color: theme.primaryHeadingFontColor,
+        })}
+      >
+        {name}
+      </Heading>
+      <Tiles columns={[1, 2]}>
+        <Card
+          width="1/2"
+          sx={theme => ({
+            backgroundColor: theme.cardBackground,
+            border: '1px solid #E8EAED',
+            borderRadius: 20,
+          })}
+          m={2}
+          pb={3}
+        >
+          <Heading
+            textAlign="center"
+            fontSize={[1, 2, 3]}
+            fontFamily="StarWars"
+            fontWeight="normal"
+            p={3}
+            sx={theme => ({
+              color: theme.primaryHeadingFontColor,
+            })}
+          >
+            {name}
+          </Heading>
+          <Box
+            px={4}
+            sx={theme => ({
+              color: theme.fontColor,
+            })}
+          >
             <Image src={image} mb={3} />
-            <Text>Height: {height}</Text>
-            <Text>Weight: {mass}</Text>
-            <Text>Species: {species.name}</Text>
-            <Text>Homeworld: {homeworld.name}</Text>
+            <br/>
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propName,
+              })}
+            >
+              Height:{' '}
+            </Text>
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propValue,
+              })}
+            >
+              {height}
+            </Text>
+            <br />
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propName,
+              })}
+            >
+              Weight:{' '}
+            </Text>
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propValue,
+              })}
+            >
+              {mass}
+            </Text>
+            <br />
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propName,
+              })}
+            >
+              Species:{' '}
+            </Text>
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propValue,
+              })}
+            >
+              {species.name}
+            </Text>
+            <br/>
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propName,
+              })}
+            >
+              Homeworld:{' '}
+            </Text>
+            <Text
+              pt={3}
+              display="inline"
+              sx={theme => ({
+                color: theme.propValue,
+              })}
+            >
+              {homeworld.name}
+            </Text>
           </Box>
         </Card>
         <Box p={3}>
-          <Heading>Piloted Starships</Heading>
+          <Heading
+            fontFamily="StarWars"
+            fontWeight="normal"
+            textAlign="center"
+            sx={theme => ({
+              color: theme.secondaryHeadingFontColor,
+            })}
+          >
+            Piloted Starships
+          </Heading>
           <Box p={3}>
             {starships.edges.map(({ node: starship }) => (
               <Link
