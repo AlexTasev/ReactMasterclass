@@ -16,10 +16,6 @@ const Radar = ({ data }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
-  const {
-    allStarships: { edges },
-  } = stats;
-
   console.log(stats);
 
   return <div></div>;

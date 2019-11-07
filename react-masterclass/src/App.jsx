@@ -1,19 +1,22 @@
-import React from "react";
-import { ApolloProvider } from "@apollo/react-hooks";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import client from "./client";
-import { ThemeProvider } from "emotion-theming";
-import theme from "@rebass/preset";
-import "./App.css";
-import Home from "./Home"
+import client from './client';
+import { ThemeProvider } from 'emotion-theming';
+import theme from '@rebass/preset';
+// import {CustomThemeProvider} from './style/themeContext';
+import './App.css';
+import Home from './Home';
 
 const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
         <ThemeProvider theme={theme}>
+          {/* <CustomThemeProvider> */}
           <Home />
+          {/* </CustomThemeProvider> */}
         </ThemeProvider>
       </Router>
     </ApolloProvider>
