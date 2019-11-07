@@ -55,20 +55,15 @@ const Episode = () => {
   };
 
   return (
-    <Box width={[400, 600, 800, 1000]} height="100%" mx="auto" my={[1, 2, 4]}>
+    <Box width={[400, 600, 800, 1000]} height="100%" mx="auto" mt={[1, 2, 4]}>
       <Box
-        sx={{
+        sx={theme => ({
+          backgroundColor: theme.cardBackground,
+          border: '1px solid #E8EAED',
           borderRadius: 20,
-        }}
+        })}
       >
-        <Flex
-          bg="white"
-          flexDirection="row"
-          alignItems="center"
-          sx={{
-            borderRadius: 20,
-          }}
-        >
+        <Flex flexDirection="row" alignItems="center">
           <Image
             src={episode.image}
             sx={{
@@ -78,18 +73,74 @@ const Episode = () => {
             maxWidth={350}
           />
           <Box width="2/3" mx="auto">
-            <Heading fontSize={[3, 4, 5]}>
+            <Heading
+              fontSize={[3, 4, 5]}
+              fontFamily="StarWars"
+              fontWeight="normal"
+              sx={theme => ({ color: theme.primaryHeadingFontColor })}
+            >
               Star Wars Episode {romanize(episode.episodeId)}
             </Heading>
-            <Heading>{episode.title}</Heading>
+            <Heading
+              fontSize={[2, 3, 4]}
+              fontFamily="StarWars"
+              fontWeight="normal"
+              sx={theme => ({ color: theme.secondaryHeadingFontColor })}
+            >
+              {episode.title}
+            </Heading>
           </Box>
         </Flex>
       </Box>
 
-      <Box bg="white" my={30} p={30}>
+      <Box
+        my={30}
+        p={30}
+        sx={theme => ({
+          color: theme.fontColor,
+          backgroundColor: theme.cardBackground,
+        })}
+      >
         {episode.openingCrawl}
-        <Text pt={3}>Director: {episode.director}</Text>
-        <Text pt={1.5}>Release date: {episode.releaseDate}</Text>
+        <Box py={3}>
+          <Text
+            pt={3}
+            display="inline"
+            sx={theme => ({
+              color: theme.propName,
+            })}
+          >
+            Director:{' '}
+          </Text>
+          <Text
+            pt={3}
+            display="inline"
+            sx={theme => ({
+              color: theme.propValue,
+            })}
+          >
+            {episode.director}
+          </Text>
+          <br/>
+          <Text
+            pt={3}
+            display="inline"
+            sx={theme => ({
+              color: theme.propName,
+            })}
+          >
+            Release date:{' '}
+          </Text>
+          <Text
+            pt={3}
+            display="inline"
+            sx={theme => ({
+              color: theme.propValue,
+            })}
+          >
+            {episode.releaseDate}
+          </Text>
+        </Box>
       </Box>
 
       <Box>
@@ -113,13 +164,17 @@ const Episode = () => {
         </Tiles>
         <Box mx="40%" pb={5} pt={4}>
           <Button
-            borderRadius={10}
-            sx={{
+            p={3}
+            sx={theme => ({
+              color: theme.buttonFontColor,
+              backgroundColor: theme.buttonBackground,
               ':hover': {
-                backgroundColor: 'tomato',
+                backgroundColor: 'green',
               },
-              cursor:"pointer"
-            }}
+              cursor: 'pointer',
+              fontWeight: '900',
+              borderRadius: 10,
+            })}
             onClick={loadMoreCharacters}
           >
             Load More

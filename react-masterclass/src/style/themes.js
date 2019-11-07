@@ -7,6 +7,9 @@ export const lightTheme = {
     background: '#E8EAED',
     fontColor: '#4E5B6E',
 
+    propName: '#4E5B6E',
+    propValue: '#4BD5EE',
+
     cardBorderColor: '#E5E9F2',
     cardBackground: '#FFF',
     cardTitle: '#3C4858',
@@ -39,6 +42,9 @@ export const darkTheme = {
     background: '#000',
     fontColor: '#ABB1BA',
 
+    propName: '#4BD5EE',
+    propValue: '#FFE300',
+
     cardBorderColor: '#3C4858',
     cardBackground: '#333',
     cardTitle: '#4BD5EE',
@@ -59,6 +65,5 @@ export const darkTheme = {
     primaryHeadingFontColor: '#FFE300',
     secondaryHeadingFontColor: '#4BD5EE',
 
-    lineColor: '#000',
-
+    lineColor: '#000'
 };

@@ -41,7 +41,7 @@ const Characters = () => {
   };
 
   return (
-    <Box m={[1, 3, 5]}>
+    <Box mt={[1, 3, 5]} width="100%">
       <Tiles columns={[1, 2, 3]} padding="4">
         {allPeople.edges.map(({ node: person }) => (
           <Link
@@ -50,26 +50,33 @@ const Characters = () => {
             key={person.id}
             to={`/characters/${person.id}`}
             id={person.id}
-            
           >
             <CharacterItem
               key={person.id}
               id={person.id}
               name={person.name}
               image={person.image}
+              sx={theme => ({
+                color: theme.fontColor,
+                backgroundColor: theme.cardBackground,
+              })}
             />
           </Link>
         ))}
       </Tiles>
       <Box mx="40%" pb={5}>
         <Button
-          borderRadius={10}
-          sx={{
+          p={3}
+          sx={theme => ({
+            color: theme.buttonFontColor,
+            backgroundColor: theme.buttonBackground,
             ':hover': {
-              backgroundColor: 'tomato',
+              backgroundColor: 'green',
             },
             cursor: 'pointer',
-          }}
+            fontWeight: '900',
+            borderRadius: 10,
+          })}
           onClick={loadMoreCharacters}
         >
           Load More
