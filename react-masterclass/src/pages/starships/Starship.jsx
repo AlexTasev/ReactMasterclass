@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { Box, Heading, Text, Image, Card } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import { STARSHIP_QUERY } from '../../client/queries/starship-query';
-import Radar from './Radar-chart'
+import Radar from './Radar-chart';
 
 const Starship = () => {
   const { starshipId } = useParams();
@@ -17,14 +17,12 @@ const Starship = () => {
 
   const {
     starship: {
-      id,
       name,
       model,
       image,
       starshipClass,
       cost,
       maxAtmosphericSpeed,
-      maxMLPerHour,
       hyperdriveRating,
       crew,
     },
