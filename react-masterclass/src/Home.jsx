@@ -16,7 +16,7 @@ export const AUTHENTICATED_QUERY = gql`
 const Home = () => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
   return (
-    <Box width={[400, 600, 1000]} mx="auto">
+    <Box width={1} m="auto" bg="#E8EAED">
       {data.authenticated ? (
         <>
           <Navbar />

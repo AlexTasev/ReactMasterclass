@@ -1,20 +1,20 @@
-import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { Link as RouterLink } from "react-router-dom";
-import { Box, Heading, Link, Text, Image } from "rebass";
-import { Tiles } from "@rebass/layout";
-import { ALL_EPISODES_QUERY } from "../../client/queries/episode-queries";
+import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { Link as RouterLink } from 'react-router-dom';
+import { Box, Heading, Link, Text, Image } from 'rebass';
+import { Tiles } from '@rebass/layout';
+import { ALL_EPISODES_QUERY } from '../../client/queries/episode-queries';
 
 const Episodes = () => {
   const { loading, error, data } = useQuery(ALL_EPISODES_QUERY, {
-    variables: { first: 30 }
+    variables: { first: 30 },
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error on getting all episodes</p>;
 
   return (
-    <Box backgroundColor="#E8EAED">
+    <Box>
       <Tiles columns={[1, 2, 3]} padding="4">
         {data.allEpisodes.edges.map(({ node }) => (
           <Link
@@ -24,27 +24,38 @@ const Episodes = () => {
             to={`/episodes/${node.id}`}
             id={node.id}
             backgroundColor="white"
-            margin="4"
+            p={0}
+            m={[1, 2, 5]}
+            sx={{
+              borderRadius: 20,
+              ':hover': {
+                boxShadow: '20px 20px 20px grey',
+              },
+            }}
           >
             <Image
               src={node.image}
               sx={{
-                width: ["100%", "100%"],
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-                marginBottom: 3
+                width: ['100%'],
+                borderTopLeftRadius: 20,
+                borderTopRightRadius: 20,
+                mb: 3,
               }}
             />
-            <Heading
-              fontSize={[2, 3, 4]}
-              color="#4BD5EE"
-              sx={{ marginBottom: 3 }}
-            >
-              {node.title}
-            </Heading>
-            <Text fontSize={[0.5, 0.7, 1]} fontWeight="normal" color="#4E5B6E">
-              {node.openingCrawl.substring(0, 220) + "..."}
-            </Text>
+            <Box>
+              <Heading fontSize={[3, 4, 5]} color="#4BD5EE" p={[1, 2, 3]}>
+                {node.title}
+              </Heading>
+              <Text
+                fontSize={[1, 2, 3]}
+                fontWeight="normal"
+                color="#4E5B6E"
+                p={[1, 2, 3]}
+                pt={[2, 3, 4]}
+              >
+                {node.openingCrawl.substring(0, 300) + '...'}
+              </Text>
+            </Box>
           </Link>
         ))}
       </Tiles>

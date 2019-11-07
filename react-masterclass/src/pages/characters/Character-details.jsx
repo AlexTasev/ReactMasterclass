@@ -21,20 +21,22 @@ const Character = () => {
     person: { name, image, height, mass, species, homeworld, starships },
   } = data;
   return (
-    <>
+    <Box width={[400, 600, 800, 1000]} height="100%" mx="auto" my={[1, 2, 4]}>
       <Heading>{name}</Heading>
       <Tiles columns={[1, 2]} backgroundColor="#E8EAED">
-        <Card width="1/2">
-          <Heading>{name}</Heading>
-          <Image src={image} width="1/3" />
-          <Text>Height: {height}</Text>
-          <Text>Weight: {mass}</Text>
-          <Text>Species: {species.name}</Text>
-          <Text>Homeworld: {homeworld.name}</Text>
+        <Card width="1/2" sx={{ borderRadius: 20 }} >
+          <Heading textAlign="center" pt={2}>{name}</Heading>
+          <Box p={4}>
+            <Image src={image} mb={3} />
+            <Text>Height: {height}</Text>
+            <Text>Weight: {mass}</Text>
+            <Text>Species: {species.name}</Text>
+            <Text>Homeworld: {homeworld.name}</Text>
+          </Box>
         </Card>
-        <Box>
+        <Box p={3}>
           <Heading>Piloted Starships</Heading>
-          <Box padding="3" height="2">
+          <Box p={3}>
             {starships.edges.map(({ node: starship }) => (
               <Link
                 as={RouterLink}
@@ -54,7 +56,7 @@ const Character = () => {
           </Box>
         </Box>
       </Tiles>
-    </>
+    </Box>
   );
 };
 
