@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import LoginComponent from './components/login/Login-component';
+import Loading from './components/common/Loading';
 
 const SIGN_IN = gql`
   mutation signIn($email: String!, $password: String!) {
@@ -21,8 +22,8 @@ const Login = () => {
     },
   });
 
-  if (loading) return <span>Loading...</span>;
-  if (error) return <p>An error occurred</p>;
+  if (loading) return <Loading />;
+  if (error) return <p>Can not Login.</p>;
 
   return <LoginComponent login={login} />;
 };
