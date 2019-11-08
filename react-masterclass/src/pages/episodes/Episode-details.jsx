@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { EPISODE_QUERY } from '../../client/queries/episode-queries';
 import EpisodeDetailsComponent from '../../components/episodes/Episode-details-component';
+import Loading from '../../components/common/Loading';
 
 const Episode = () => {
   let { episodeId } = useParams();
@@ -11,8 +12,8 @@ const Episode = () => {
     variables: { episodeId, first: 5 },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Some Error Occured</p>;
+  if (loading) return <Loading />;
+  if (error) return <p>Error on getting episode details</p>;
 
   const {
     episode,

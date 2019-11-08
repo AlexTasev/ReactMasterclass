@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink, Redirect } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { useApolloClient } from '@apollo/react-hooks';
 import { Box, Image, Flex, Link, Button } from 'rebass';
 import { Tiles } from '@rebass/layout';
@@ -11,7 +11,6 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    console.log(client);
     client.cache.reset();
     client.writeData({ data: { authenticated: false } });
   };

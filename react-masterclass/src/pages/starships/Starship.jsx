@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { STARSHIP_QUERY } from '../../client/queries/starship-query';
 import StarshipComponent from '../../components/starships/Starship-component';
+import Loading from '../../components/common/Loading';
 
 const Starship = () => {
   const { starshipId } = useParams();
@@ -10,8 +11,8 @@ const Starship = () => {
     variables: { starshipId },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (loading) return <Loading />;
+  if (error) return <p>Error on getting starship details</p>;
 
   const { starship } = data;
 
