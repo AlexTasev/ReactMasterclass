@@ -1,13 +1,12 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import gql from 'graphql-tag.macro';
-import Episode from "./episodes/Episode-details";
-import Episodes from "./episodes/Episodes";
-import Characters from "./characters/Characters";
-import Character from "./characters/Character-details";
-import Starship from "./starships/Starship"
-import ProtectedRoute from "../components/common/ProtectedRoute";
-
+import Episode from './episodes/Episode-details';
+import Episodes from './episodes/Episodes';
+import Characters from './characters/Characters';
+import Character from './characters/Character-details';
+import Starship from './starships/Starship';
+import ProtectedRoute from '../components/common/ProtectedRoute';
 
 export const AUTHENTICATED_QUERY = gql`
   query IsAuthenticated {
@@ -16,8 +15,6 @@ export const AUTHENTICATED_QUERY = gql`
 `;
 
 const Pages = () => {
-  // const { data } = useQuery(AUTHENTICATED_QUERY);
-
   return (
     <Switch>
       <ProtectedRoute>

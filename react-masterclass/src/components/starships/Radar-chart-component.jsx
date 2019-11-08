@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { STATS_QUERY } from '../../client/queries/starship-query';
 
-const Radar = ({ data }) => {
+const RadarChartComponent = ({ data }) => {
   const { data: stats, loading, error } = useQuery(STATS_QUERY, {
     skip: !data || !data.starship || !data.starship.starshipClass,
     variables: {
@@ -21,4 +21,4 @@ const Radar = ({ data }) => {
   return <div></div>;
 };
 
-export default Radar;
+export default RadarChartComponent;

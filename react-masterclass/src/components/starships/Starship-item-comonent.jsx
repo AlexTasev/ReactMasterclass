@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, Image, Flex, Box } from 'rebass';
 
-const StarshipItem = ({ name, image }) => {
+const StarshipItemComponent = ({ name, image }) => {
   return (
     <Box my={3} >
       <Flex
@@ -44,4 +44,4 @@ const StarshipItem = ({ name, image }) => {
   );
 };
 
-export default StarshipItem;
+export default StarshipItemComponent;
