@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-import gql from "graphql-tag";
-import { useApolloClient, useMutation } from "@apollo/react-hooks";
-import Logo from "../../components/common/Logo";
+import React, { useState } from 'react';
+import gql from 'graphql-tag';
+import { useApolloClient, useMutation } from '@apollo/react-hooks';
+import { Box, Flex } from 'rebass';
+import Logo from '../../components/common/Logo';
+import ButtonSW from '../../components/common/ButtonSW';
+import InputSW from '../../components/common/InputSW';
 
 const SIGN_IN = gql`
   mutation signIn($email: String!, $password: String!) {
@@ -11,9 +14,9 @@ const SIGN_IN = gql`
   }
 `;
 
-const Login = props => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+const Login = () => {
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
 
   let credentialsError = false;
 
@@ -21,9 +24,9 @@ const Login = props => {
 
   const [login, { loading, error }] = useMutation(SIGN_IN, {
     onCompleted: ({ signIn: signInData }) => {
-      localStorage.setItem("token", signInData.token);
+      localStorage.setItem('token', signInData.token);
       client.writeData({ data: { authenticated: true } });
-    }
+    },
   });
 
   if (loading) return <span>Loading...</span>;
@@ -40,33 +43,48 @@ const Login = props => {
   };
 
   return (
-    <section>
-      <Logo fontSize={[8,9,10]} />
+    <Box backgroundColor="black" width="50%" height="50%" mx="auto" my={5}>
+      <Flex fontSize={[4, 5, 6, 7, 8]}>
+        <Logo fontSize={[8, 9, 10]} mx="auto" />
+      </Flex>
       {credentialsError && <div className="error">Invalid credentials!</div>}
-      <form className="form-group" onSubmit={handleSubmit}>
-        <div>
-          <input
+      <Box
+        as="form"
+        onSubmit={handleSubmit}
+        mx="auto"
+        my={5}
+        sx={theme => ({
+          backgroundColor: theme.cardBackground,
+          borderRadius: 20,
+          width: '80%',
+        })}
+      >
+        {' '}
+        <Flex
+          flexDirection="column"
+          justifyContent="spaceBetween"
+          alignItems="center"
+        >
+          <InputSW
             type="email"
             name="email"
             value={userEmail}
             placeholder="email"
             onChange={e => setUserEmail(e.target.value)}
           />
-        </div>
-        <div>
-          <input
+          <InputSW
             type="password"
             name="password"
             value={userPassword}
             placeholder="password"
             onChange={e => setUserPassword(e.target.value)}
           />
-        </div>
-        <div>
-          <input type="submit" value="Login" />
-        </div>
-      </form>
-    </section>
+          <Box alignItems="right" px="auto">
+            <ButtonSW type="submit">Login</ButtonSW>
+          </Box>
+        </Flex>
+      </Box>
+    </Box>
   );
 };
 

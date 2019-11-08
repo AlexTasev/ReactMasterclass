@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, Image, Flex } from 'rebass';
 
-const CharacterItem = ({ name, image }) => {
+const CharacterItemComponent = ({ name, image }) => {
   if (!image) {
     image =
       'https://lumiere-a.akamaihd.net/v1/images/og-generic_02031d2b.png?region=0%2C0%2C1200%2C1200';
@@ -49,4 +49,4 @@ const CharacterItem = ({ name, image }) => {
   );
 };
 
-export default CharacterItem;
+export default CharacterItemComponent;
