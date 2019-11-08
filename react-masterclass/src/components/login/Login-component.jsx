@@ -1,36 +1,14 @@
 import React, { useState } from 'react';
-import gql from 'graphql-tag';
-import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import { Box, Flex } from 'rebass';
-import Logo from '../../components/common/Logo';
-import ButtonSW from '../../components/common/ButtonSW';
-import InputSW from '../../components/common/InputSW';
+import Logo from '../common/Logo';
+import ButtonSW from '../common/ButtonSW';
+import InputSW from '../common/InputSW';
 
-const SIGN_IN = gql`
-  mutation signIn($email: String!, $password: String!) {
-    signIn(email: $email, password: $password) {
-      token
-    }
-  }
-`;
-
-const Login = () => {
+const LoginComponent = ({ login }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
   let credentialsError = false;
-
-  const client = useApolloClient();
-
-  const [login, { loading, error }] = useMutation(SIGN_IN, {
-    onCompleted: ({ signIn: signInData }) => {
-      localStorage.setItem('token', signInData.token);
-      client.writeData({ data: { authenticated: true } });
-    },
-  });
-
-  if (loading) return <span>Loading...</span>;
-  if (error) return <p>An error occurred</p>;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -47,7 +25,7 @@ const Login = () => {
       <Flex fontSize={[4, 5, 6, 7, 8]}>
         <Logo fontSize={[8, 9, 10]} mx="auto" />
       </Flex>
-      {credentialsError && <div className="error">Invalid credentials!</div>}
+      {credentialsError && <Box>Invalid credentials!</Box>}
       <Box
         as="form"
         onSubmit={handleSubmit}
@@ -88,4 +66,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginComponent;
