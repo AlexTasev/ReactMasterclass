@@ -12,7 +12,7 @@ const EpisodeDetailsComponent = ({
   loadMoreCharacters,
 }) => {
   return (
-    <Box width={[400, 600, 800, 1000]} height="100%" mx="auto" mt={[1, 2, 4]}>
+    <Box width={[ 500, 600, 800, 1000]} height="100%" mx="auto" mt={[1, 2, 4]}>
       <Box
         sx={theme => ({
           backgroundColor: theme.cardBackground,
@@ -31,7 +31,7 @@ const EpisodeDetailsComponent = ({
           />
           <Box width="2/3" mx="auto">
             <Heading
-              fontSize={[3, 4, 5]}
+              fontSize={[2, 3, 4, 5]}
               fontFamily="StarWars"
               fontWeight="normal"
               sx={theme => ({ color: theme.primaryHeadingFontColor })}
@@ -39,7 +39,7 @@ const EpisodeDetailsComponent = ({
               Star Wars Episode {romanize(episode.episodeId)}
             </Heading>
             <Heading
-              fontSize={[2, 3, 4]}
+              fontSize={[1, 2, 3, 4]}
               fontFamily="StarWars"
               fontWeight="normal"
               sx={theme => ({ color: theme.secondaryHeadingFontColor })}
