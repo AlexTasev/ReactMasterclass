@@ -2,6 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Tiles } from '@rebass/layout';
 import { Box, Heading, Text, Image, Flex, Link } from 'rebass';
+import { HeadingH1, HeadingH2 } from '../common/Headings';
 import { romanize } from '../../utils/helpers';
 import CharacterItemComponent from '../characters/Character-item-component';
 import ButtonSW from '../common/ButtonSW';
@@ -12,7 +13,7 @@ const EpisodeDetailsComponent = ({
   loadMoreCharacters,
 }) => {
   return (
-    <Box width={[ 500, 600, 800, 1000]} height="100%" mx="auto" mt={[1, 2, 4]}>
+    <Box width={[500, 600, 800, 1000]} height="100%" mx="auto" mt={[1, 2, 4]}>
       <Box
         sx={theme => ({
           backgroundColor: theme.cardBackground,
@@ -30,22 +31,10 @@ const EpisodeDetailsComponent = ({
             maxWidth={350}
           />
           <Box width="2/3" mx="auto">
-            <Heading
-              fontSize={[2, 3, 4, 5]}
-              fontFamily="StarWars"
-              fontWeight="normal"
-              sx={theme => ({ color: theme.primaryHeadingFontColor })}
-            >
+            <HeadingH1>
               Star Wars Episode {romanize(episode.episodeId)}
-            </Heading>
-            <Heading
-              fontSize={[1, 2, 3, 4]}
-              fontFamily="StarWars"
-              fontWeight="normal"
-              sx={theme => ({ color: theme.secondaryHeadingFontColor })}
-            >
-              {episode.title}
-            </Heading>
+            </HeadingH1>
+            <HeadingH2>{episode.title}</HeadingH2>
           </Box>
         </Flex>
       </Box>

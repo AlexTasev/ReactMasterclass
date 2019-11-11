@@ -2,6 +2,8 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, Heading, Text, Image, Card, Link } from 'rebass';
 import { Tiles } from '@rebass/layout';
+import { InlineName, InlineValue } from '../common/InlineText';
+import { HeadingH1 } from '../common/Headings';
 import StarshipItemComponent from '../starships/Starship-item-comonent';
 
 const CharacterDetailsComponent = ({
@@ -10,23 +12,12 @@ const CharacterDetailsComponent = ({
   return (
     <Box
       width={[400, 600, 800, 1000]}
-      height="100%"
+      height="100vh"
       mx="auto"
       mt={[1, 2, 4]}
       pb={5}
     >
-      <Heading
-        p={3}
-        fontSize={[3, 4, 5]}
-        fontFamily="StarWars"
-        fontWeight="normal"
-        textAlign="center"
-        sx={theme => ({
-          color: theme.primaryHeadingFontColor,
-        })}
-      >
-        {name}
-      </Heading>
+      <HeadingH1>{name}</HeadingH1>
       <Tiles columns={[1, 2]}>
         <Card
           width="1/2"
@@ -58,81 +49,17 @@ const CharacterDetailsComponent = ({
           >
             <Image src={image} mb={3} />
             <br />
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propName,
-              })}
-            >
-              Height:{' '}
-            </Text>
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propValue,
-              })}
-            >
-              {height}
-            </Text>
+            <InlineName>Height: </InlineName>
+            <InlineValue>{height}</InlineValue>
             <br />
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propName,
-              })}
-            >
-              Weight:{' '}
-            </Text>
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propValue,
-              })}
-            >
-              {mass}
-            </Text>
+            <InlineName>Weight: </InlineName>
+            <InlineValue>{mass}</InlineValue>
             <br />
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propName,
-              })}
-            >
-              Species:{' '}
-            </Text>
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propValue,
-              })}
-            >
-              {species.name}
-            </Text>
+            <InlineName>Species: </InlineName>
+            <InlineValue>{species.name}</InlineValue>
             <br />
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propName,
-              })}
-            >
-              Homeworld:{' '}
-            </Text>
-            <Text
-              pt={3}
-              display="inline"
-              sx={theme => ({
-                color: theme.propValue,
-              })}
-            >
-              {homeworld.name}
-            </Text>
+            <InlineName>Homeworld: </InlineName>
+            <InlineValue>{homeworld.name}</InlineValue>
           </Box>
         </Card>
         <Box p={3}>

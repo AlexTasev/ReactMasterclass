@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Heading, Link, Text, Image } from 'rebass';
+import { Box, Link, Text, Image } from 'rebass';
 import { Tiles } from '@rebass/layout';
+import { HeadingH1 } from '../common/Headings';
 
 const EpisodesComponent = ({ data }) => {
   return (
@@ -39,16 +40,7 @@ const EpisodesComponent = ({ data }) => {
                   borderTopRightRadius: 20,
                 }}
               />
-              <Heading
-                fontSize={[3, 4, 5]}
-                fontFamily="StarWars"
-                fontWeight="normal"
-                fontColor
-                p={[1, 2, 3]}
-                sx={theme => ({ color: theme.primaryHeadingFontColor })}
-              >
-                {node.title}
-              </Heading>
+              <HeadingH1>{node.title}</HeadingH1>
               <Text
                 fontSize={[1, 2, 3]}
                 fontWeight="normal"

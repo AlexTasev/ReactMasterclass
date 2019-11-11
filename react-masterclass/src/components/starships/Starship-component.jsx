@@ -1,7 +1,9 @@
 import React from 'react';
-import { Box, Heading, Text, Image, Card } from 'rebass';
+import { Box, Heading, Image, Card } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import RadarChartComponent from './Radar-chart-component';
+import { InlineName, InlineValue } from '../common/InlineText';
+import { HeadingH1 } from '../common/Headings';
 
 const StarshipComponent = ({
   starship: {
@@ -18,16 +20,7 @@ const StarshipComponent = ({
 }) => {
   return (
     <>
-      <Heading
-        mt={4}
-        textAlign="center"
-        fontSize={[3, 4, 5]}
-        fontFamily="StarWars"
-        fontWeight="normal"
-        sx={theme => ({ color: theme.primaryHeadingFontColor })}
-      >
-        {name}
-      </Heading>
+      <HeadingH1>{name}</HeadingH1>
       <Heading
         textAlign="center"
         fontSize={[2, 3, 4]}
@@ -38,8 +31,8 @@ const StarshipComponent = ({
         ({model})
       </Heading>
       <Box
-        width={[400, 600, 800, 1000]}
-        height="100%"
+        width={[400, 600, 800, 1000, 1600]}
+        height="100vh"
         mx="auto"
         mt={[1, 2, 4]}
         pb={5}
@@ -47,7 +40,6 @@ const StarshipComponent = ({
         <Tiles
           columns={[1, 2]}
           sx={theme => ({ backgroundColor: theme.background })}
-          mb={4}
         >
           <Card
             sx={theme => ({
@@ -71,100 +63,20 @@ const StarshipComponent = ({
             <Box px={4} pb={3}>
               <Image src={image} width="1/3" />
               <br />
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propName,
-                })}
-              >
-                Class:{' '}
-              </Text>
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propValue,
-                })}
-              >
-                {starshipClass}
-              </Text>
+              <InlineName>Class: </InlineName>
+              <InlineValue>{starshipClass}</InlineValue>
               <br />
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propName,
-                })}
-              >
-                Cost:{' '}
-              </Text>
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propValue,
-                })}
-              >
-                {cost} credits
-              </Text>
+              <InlineName>Cost: </InlineName>
+              <InlineValue>{cost} credits</InlineValue>
               <br />
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propName,
-                })}
-              >
-                Crew:{' '}
-              </Text>
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propValue,
-                })}
-              >
-                {crew}
-              </Text>
+              <InlineName>Crew: </InlineName>
+              <InlineValue>{crew}</InlineValue>
               <br />
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propName,
-                })}
-              >
-                Max Atmospheric Speed:{' '}
-              </Text>
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propValue,
-                })}
-              >
-                {maxAtmosphericSpeed}
-              </Text>
+              <InlineName>Max Atmospheric Speed: </InlineName>
+              <InlineValue>{maxAtmosphericSpeed}</InlineValue>
               <br />
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propName,
-                })}
-              >
-                HyperdriveRating:{' '}
-              </Text>
-              <Text
-                pt={3}
-                display="inline"
-                sx={theme => ({
-                  color: theme.propValue,
-                })}
-              >
-                {hyperdriveRating}
-              </Text>
+              <InlineName>HyperdriveRating: </InlineName>
+              <InlineValue>{hyperdriveRating}</InlineValue>
             </Box>
           </Card>
           <Box>
