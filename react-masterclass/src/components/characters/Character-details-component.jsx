@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Heading, Text, Image, Card, Link } from 'rebass';
+import { Box, Image, Card, Link } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import { InlineName, InlineValue } from '../common/InlineText';
-import { HeadingH1 } from '../common/Headings';
+import { HeadingH1, HeadingH2, HeadingH3 } from '../common/Headings';
 import StarshipItemComponent from '../starships/Starship-item-comonent';
 
 const CharacterDetailsComponent = ({
@@ -18,7 +18,8 @@ const CharacterDetailsComponent = ({
       pb={5}
     >
       <HeadingH1>{name}</HeadingH1>
-      <Tiles columns={[1, 2]}>
+      <hr sx={theme => theme.lineColor} />
+      <Tiles columns={[1, 2]} mt={4}>
         <Card
           width="1/2"
           sx={theme => ({
@@ -29,18 +30,7 @@ const CharacterDetailsComponent = ({
           m={2}
           pb={3}
         >
-          <Heading
-            textAlign="center"
-            fontSize={[1, 2, 3]}
-            fontFamily="StarWars"
-            fontWeight="normal"
-            p={3}
-            sx={theme => ({
-              color: theme.primaryHeadingFontColor,
-            })}
-          >
-            {name}
-          </Heading>
+          <HeadingH3>{name}</HeadingH3>
           <Box
             px={4}
             sx={theme => ({
@@ -63,16 +53,8 @@ const CharacterDetailsComponent = ({
           </Box>
         </Card>
         <Box p={3}>
-          <Heading
-            fontFamily="StarWars"
-            fontWeight="normal"
-            textAlign="center"
-            sx={theme => ({
-              color: theme.secondaryHeadingFontColor,
-            })}
-          >
-            Piloted Starships
-          </Heading>
+          <HeadingH2>Piloted Starships</HeadingH2>
+          <hr sx={theme => theme.lineColor} />
           <Box p={3}>
             {starships.edges.map(({ node: starship }) => (
               <Link

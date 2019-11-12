@@ -1,21 +1,20 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { Box, Link } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import CharacterItemComponent from './Character-item-component';
-import ButtonSW from '../common/ButtonSW'
+import { LinkWrapper } from '../common/Containers';
+import ButtonSW from '../common/ButtonSW';
 
 const CharactersComponent = ({ allPeople, loadMoreCharacters }) => {
   return (
     <Box mt={[1, 3, 5]} width="100%">
-      <Tiles columns={[1, 2, 3]} padding="4">
+      <Tiles columns={[1, 2, 3]} m={5}>
         {allPeople.edges.map(({ node: person }) => (
-          <Link
-            as={RouterLink}
-            variant="nav"
+          <LinkWrapper
             key={person.id}
             to={`/characters/${person.id}`}
             id={person.id}
+            m={[1, 2, 3]}
           >
             <CharacterItemComponent
               key={person.id}
@@ -27,7 +26,7 @@ const CharactersComponent = ({ allPeople, loadMoreCharacters }) => {
                 backgroundColor: theme.cardBackground,
               })}
             />
-          </Link>
+          </LinkWrapper>
         ))}
       </Tiles>
       <Box mx="40%" pb={5}>

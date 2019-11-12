@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Tiles } from '@rebass/layout';
-import { Box, Heading, Text, Image, Flex, Link } from 'rebass';
+import { Box, Image, Flex, Link } from 'rebass';
+import { InlineName, InlineValue } from '../common/InlineText';
 import { HeadingH1, HeadingH2 } from '../common/Headings';
+import { LinkWrapper } from '../common/Containers';
 import { romanize } from '../../utils/helpers';
 import CharacterItemComponent from '../characters/Character-item-component';
 import ButtonSW from '../common/ButtonSW';
@@ -49,50 +51,24 @@ const EpisodeDetailsComponent = ({
       >
         {episode.openingCrawl}
         <Box py={3}>
-          <Text
-            pt={3}
-            display="inline"
-            sx={theme => ({
-              color: theme.propName,
-            })}
-          >
-            Director:{' '}
-          </Text>
-          <Text
-            pt={3}
-            display="inline"
-            sx={theme => ({
-              color: theme.propValue,
-            })}
+          <InlineName>Director: </InlineName>
+          <InlineValue
           >
             {episode.director}
-          </Text>
+          </InlineValue>
           <br />
-          <Text
-            pt={3}
-            display="inline"
-            sx={theme => ({
-              color: theme.propName,
-            })}
-          >
-            Release date:{' '}
-          </Text>
-          <Text
-            pt={3}
-            display="inline"
-            sx={theme => ({
-              color: theme.propValue,
-            })}
+          <InlineName>Release date: </InlineName>
+          <InlineValue
           >
             {episode.releaseDate}
-          </Text>
+          </InlineValue>
         </Box>
       </Box>
 
       <Box>
         <Tiles columns={[1, 2, 3]}>
           {characters.map(character => (
-            <Link
+            <LinkWrapper
               as={RouterLink}
               variant="nav"
               key={character.node.id}
@@ -105,7 +81,7 @@ const EpisodeDetailsComponent = ({
                 name={character.node.name}
                 image={character.node.image}
               />
-            </Link>
+            </LinkWrapper>
           ))}
         </Tiles>
         <Box mx="40%" pb={5} pt={4}>

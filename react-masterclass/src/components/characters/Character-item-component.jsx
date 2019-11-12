@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heading, Image, Flex } from 'rebass';
+import { HeadingH2 } from '../common/Headings';
 
 const CharacterItemComponent = ({ name, image }) => {
   if (!image) {
@@ -29,22 +30,7 @@ const CharacterItemComponent = ({ name, image }) => {
           borderBottomLeftRadius: 20,
         }}
       />
-
-      <Heading
-        fontSize={[1, 2, 3]}
-        width={2 / 3}
-        height="100%"
-        px={3}
-        textAlign="center"
-        fontFamily="StarWars"
-        fontWeight="normal"
-        py="3"
-        sx={theme => ({
-          color: theme.primaryHeadingFontColor
-        })}
-      >
-        {name}
-      </Heading>
+      <HeadingH2>{name}</HeadingH2>
     </Flex>
   );
 };
