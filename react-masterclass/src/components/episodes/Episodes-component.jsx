@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, Link, Text, Image } from 'rebass';
+
 import { Tiles } from '@rebass/layout';
+import { LinkWrapper } from '../common/Containers';
 import { HeadingH1 } from '../common/Headings';
 
 const EpisodesComponent = ({ data }) => {
@@ -9,20 +11,12 @@ const EpisodesComponent = ({ data }) => {
     <Box>
       <Tiles columns={[1, 2, 3]} padding="4">
         {data.allEpisodes.edges.map(({ node }) => (
-          <Link
-            as={RouterLink}
-            variant="nav"
+          <LinkWrapper
             key={node.id}
             to={`/episodes/${node.id}`}
             id={node.id}
             p={0}
-            m={[1, 2, 5]}
-            sx={{
-              borderRadius: 20,
-              ':hover': {
-                boxShadow: '20px 20px 20px #333',
-              },
-            }}
+            m={[1, 2, 3, 4, 5]}
           >
             <Box
               height="100%"
@@ -51,7 +45,7 @@ const EpisodesComponent = ({ data }) => {
                 {node.openingCrawl.substring(0, 300) + '...'}
               </Text>
             </Box>
-          </Link>
+          </LinkWrapper>
         ))}
       </Tiles>
     </Box>
