@@ -1,9 +1,10 @@
 import React from 'react';
-import { Heading, Image, Flex, Box } from 'rebass';
+import { Image, Flex, Box } from 'rebass';
+import { HeadingH3 } from '../common/Headings';
 
 const StarshipItemComponent = ({ name, image }) => {
   return (
-    <Box my={3} >
+    <Box my={3}>
       <Flex
         sx={theme => ({
           backgroundColor: theme.cardBackground,
@@ -11,6 +12,9 @@ const StarshipItemComponent = ({ name, image }) => {
           borderRadius: 20,
           justifyContent: 'center',
           itemsAlign: 'center',
+          ':hover': {
+            boxShadow: '20px 20px 20px theme.cardBackground',
+          },
         })}
       >
         <Image
@@ -24,21 +28,7 @@ const StarshipItemComponent = ({ name, image }) => {
           }}
         />
 
-        <Heading
-          fontSize={[1, 2, 3]}
-          fontFamily="StarWars"
-          fontWeight="normal"
-          width={4 / 5}
-          px={3}
-          textAlign="center"
-          verticalAlign="middle"
-          my="auto"
-          sx={theme => ({
-            color: theme.primaryHeadingFontColor,
-          })}
-        >
-          {name}
-        </Heading>
+        <HeadingH3 my="auto">{name}</HeadingH3>
       </Flex>
     </Box>
   );

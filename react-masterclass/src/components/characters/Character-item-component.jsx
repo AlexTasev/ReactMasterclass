@@ -1,6 +1,6 @@
 import React from 'react';
-import { Heading, Image, Flex } from 'rebass';
-import { HeadingH2 } from '../common/Headings';
+import { Image, Flex } from 'rebass';
+import { HeadingH3 } from '../common/Headings';
 
 const CharacterItemComponent = ({ name, image }) => {
   if (!image) {
@@ -30,7 +30,7 @@ const CharacterItemComponent = ({ name, image }) => {
           borderBottomLeftRadius: 20,
         }}
       />
-      <HeadingH2>{name}</HeadingH2>
+      <HeadingH3 mx="auto">{name}</HeadingH3>
     </Flex>
   );
 };

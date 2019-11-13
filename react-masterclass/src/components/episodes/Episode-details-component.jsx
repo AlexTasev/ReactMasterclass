@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { Tiles } from '@rebass/layout';
-import { Box, Image, Flex, Link } from 'rebass';
+import { Box, Image, Flex } from 'rebass';
 import { InlineName, InlineValue } from '../common/InlineText';
 import { HeadingH1, HeadingH2 } from '../common/Headings';
-import { LinkWrapper } from '../common/Containers';
+import { LinkWrapper, BoxWrapper } from '../common/Containers';
 import { romanize } from '../../utils/helpers';
 import CharacterItemComponent from '../characters/Character-item-component';
 import ButtonSW from '../common/ButtonSW';
@@ -15,7 +14,7 @@ const EpisodeDetailsComponent = ({
   loadMoreCharacters,
 }) => {
   return (
-    <Box width={[500, 600, 800, 1000]} height="100%" mx="auto" mt={[1, 2, 4]}>
+    <BoxWrapper height="100%">
       <Box
         sx={theme => ({
           backgroundColor: theme.cardBackground,
@@ -52,16 +51,10 @@ const EpisodeDetailsComponent = ({
         {episode.openingCrawl}
         <Box py={3}>
           <InlineName>Director: </InlineName>
-          <InlineValue
-          >
-            {episode.director}
-          </InlineValue>
+          <InlineValue>{episode.director}</InlineValue>
           <br />
           <InlineName>Release date: </InlineName>
-          <InlineValue
-          >
-            {episode.releaseDate}
-          </InlineValue>
+          <InlineValue>{episode.releaseDate}</InlineValue>
         </Box>
       </Box>
 
@@ -69,8 +62,6 @@ const EpisodeDetailsComponent = ({
         <Tiles columns={[1, 2, 3]}>
           {characters.map(character => (
             <LinkWrapper
-              as={RouterLink}
-              variant="nav"
               key={character.node.id}
               to={`/characters/${character.node.id}`}
               id={character.node.id}
@@ -88,7 +79,7 @@ const EpisodeDetailsComponent = ({
           <ButtonSW onClick={loadMoreCharacters}>Load More</ButtonSW>
         </Box>
       </Box>
-    </Box>
+    </BoxWrapper>
   );
 };
 

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { Box, Link, Text, Image } from 'rebass';
-
+import { Box, Text, Image } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import { LinkWrapper } from '../common/Containers';
 import { HeadingH1 } from '../common/Headings';
@@ -34,7 +32,7 @@ const EpisodesComponent = ({ data }) => {
                   borderTopRightRadius: 20,
                 }}
               />
-              <HeadingH1>{node.title}</HeadingH1>
+              <HeadingH1 pt={[2, 3, 4]}>{node.title}</HeadingH1>
               <Text
                 fontSize={[1, 2, 3]}
                 fontWeight="normal"
