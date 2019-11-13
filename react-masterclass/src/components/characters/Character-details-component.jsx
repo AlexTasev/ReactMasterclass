@@ -1,36 +1,21 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { Box, Image, Card, Link } from 'rebass';
+import { Box, Image } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import { InlineName, InlineValue } from '../common/InlineText';
 import { HeadingH1, HeadingH2, HeadingH3 } from '../common/Headings';
+import { BoxWrapper, LinkWrapper, CardDetails } from '../common/Containers';
 import StarshipItemComponent from '../starships/Starship-item-comonent';
 
 const CharacterDetailsComponent = ({
   character: { name, image, height, mass, species, homeworld, starships },
 }) => {
   return (
-    <Box
-      width={[400, 600, 800, 1000]}
-      height="100vh"
-      mx="auto"
-      mt={[1, 2, 4]}
-      pb={5}
-    >
+    <BoxWrapper height="100vh">
       <HeadingH1>{name}</HeadingH1>
       <hr sx={theme => theme.lineColor} />
       <Tiles columns={[1, 2]} mt={4}>
-        <Card
-          width="1/2"
-          sx={theme => ({
-            backgroundColor: theme.cardBackground,
-            border: '1px solid #E8EAED',
-            borderRadius: 20,
-          })}
-          m={2}
-          pb={3}
-        >
-          <HeadingH3>{name}</HeadingH3>
+        <CardDetails>
+          <HeadingH3 py={3}>{name}</HeadingH3>
           <Box
             px={4}
             sx={theme => ({
@@ -51,15 +36,13 @@ const CharacterDetailsComponent = ({
             <InlineName>Homeworld: </InlineName>
             <InlineValue>{homeworld.name}</InlineValue>
           </Box>
-        </Card>
+        </CardDetails>
         <Box p={3}>
           <HeadingH2>Piloted Starships</HeadingH2>
           <hr sx={theme => theme.lineColor} />
           <Box p={3}>
             {starships.edges.map(({ node: starship }) => (
-              <Link
-                as={RouterLink}
-                variant="nav"
+              <LinkWrapper
                 key={starship.id}
                 to={`/starships/${starship.id}`}
                 id={starship.id}
@@ -70,12 +53,12 @@ const CharacterDetailsComponent = ({
                   name={starship.name}
                   image={starship.image}
                 />
-              </Link>
+              </LinkWrapper>
             ))}
           </Box>
         </Box>
       </Tiles>
-    </Box>
+    </BoxWrapper>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Link } from 'rebass';
+import { Box } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import CharacterItemComponent from './Character-item-component';
 import { LinkWrapper } from '../common/Containers';

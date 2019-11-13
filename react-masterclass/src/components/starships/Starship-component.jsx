@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Heading, Image, Card } from 'rebass';
+import { Box, Image } from 'rebass';
 import { Tiles } from '@rebass/layout';
 import RadarChartComponent from './Radar-chart-component';
 import { InlineName, InlineValue } from '../common/InlineText';
-import { HeadingH1 } from '../common/Headings';
+import { HeadingH1, HeadingH2, HeadingH3 } from '../common/Headings';
+import { CardDetails, BoxWrapper } from '../common/Containers';
 
 const StarshipComponent = ({
   starship: {
@@ -20,46 +21,17 @@ const StarshipComponent = ({
 }) => {
   return (
     <>
-      <HeadingH1>{name}</HeadingH1>
-      <Heading
-        textAlign="center"
-        fontSize={[2, 3, 4]}
-        fontFamily="StarWars"
-        fontWeight="normal"
-        sx={theme => ({ color: theme.secondaryHeadingFontColor })}
-      >
-        ({model})
-      </Heading>
-      <Box
-        width={[400, 600, 800, 1000, 1600]}
-        height="100vh"
-        mx="auto"
-        mt={[1, 2, 4]}
-        pb={5}
-      >
+      <BoxWrapper height="100vh">
+        <HeadingH1 pt={[1, 2, 3]}>{name}</HeadingH1>
+        <HeadingH2 pb={[1, 2, 3]}>({model})</HeadingH2>
+        <hr width="100%" sx={theme => theme.lineColor} />
+
         <Tiles
           columns={[1, 2]}
           sx={theme => ({ backgroundColor: theme.background })}
         >
-          <Card
-            sx={theme => ({
-              backgroundColor: theme.cardBackground,
-              border: '1px solid #E8EAED',
-              borderRadius: 20,
-            })}
-            width="1/2"
-            mr={3}
-          >
-            <Heading
-              py={3}
-              textAlign="center"
-              fontSize={[1, 2, 3]}
-              fontFamily="StarWars"
-              fontWeight="normal"
-              sx={theme => ({ color: theme.primaryHeadingFontColor })}
-            >
-              {name}
-            </Heading>
+          <CardDetails>
+            <HeadingH3 py={3}>{name}</HeadingH3>
             <Box px={4} pb={3}>
               <Image src={image} width="1/3" />
               <br />
@@ -78,21 +50,13 @@ const StarshipComponent = ({
               <InlineName>HyperdriveRating: </InlineName>
               <InlineValue>{hyperdriveRating}</InlineValue>
             </Box>
-          </Card>
+          </CardDetails>
           <Box>
-            <Heading
-              textAlign="center"
-              fontSize={[1, 2, 3]}
-              fontFamily="StarWars"
-              fontWeight="normal"
-              sx={theme => ({ color: theme.secondaryHeadingFontColor })}
-            >
-              Compared to Starship Class Max
-            </Heading>
+            <HeadingH2 py={3}>Compared to Starship Class Max</HeadingH2>
             <RadarChartComponent data={data} />
           </Box>
         </Tiles>
-      </Box>
+      </BoxWrapper>
     </>
   );
 };

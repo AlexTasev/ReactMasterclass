@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Image, Flex, Link } from 'rebass';
+import { Box, Link, Card } from 'rebass';
 
 export const LinkWrapper = props => {
   return (
@@ -17,5 +17,33 @@ export const LinkWrapper = props => {
         },
       }}
     ></Link>
+  );
+};
+
+export const BoxWrapper = props => {
+  return (
+    <Box
+      {...props}
+      width={[400, 600, 800, 1000]}
+      mx="auto"
+      mt={[1, 2, 4]}
+      pb={[1, 2, 3]}
+    ></Box>
+  );
+};
+
+export const CardDetails = props => {
+  return (
+    <Card
+      {...props}
+      width="1/2"
+      sx={theme => ({
+        backgroundColor: theme.cardBackground,
+        border: '1px solid #E8EAED',
+        borderRadius: 20,
+      })}
+      m={2}
+      pb={3}
+    ></Card>
   );
 };

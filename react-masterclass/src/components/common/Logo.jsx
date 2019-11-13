@@ -4,12 +4,12 @@ import { ThemeContext } from '../../style/themeContext';
 
 const Logo = props => {
   const { toggleTheme } = useContext(ThemeContext);
-  
+
   return (
     <Box
       {...props}
-      fontWeight="bold"
       fontFamily="StarWars"
+      fontWeight="normal"
       fontSize="2em"
       color="#FFE300"
       sx={{ cursor: 'pointer', ':hover': { color: '#4BD5EE' } }}
