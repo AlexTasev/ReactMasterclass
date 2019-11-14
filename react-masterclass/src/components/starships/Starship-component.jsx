@@ -24,8 +24,6 @@ const StarshipComponent = ({
       <BoxWrapper height="100vh">
         <HeadingH1 pt={[1, 2, 3]}>{name}</HeadingH1>
         <HeadingH2 pb={[1, 2, 3]}>({model})</HeadingH2>
-        <hr width="100%" sx={theme => theme.lineColor} />
-
         <Tiles
           columns={[1, 2]}
           sx={theme => ({ backgroundColor: theme.background })}

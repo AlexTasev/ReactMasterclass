@@ -1,7 +1,7 @@
-import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { Redirect } from "react-router-dom";
-import gql from "graphql-tag.macro";
+import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { Route, Redirect } from 'react-router-dom';
+import gql from 'graphql-tag.macro';
 
 export const AUTHENTICATED_QUERY = gql`
   query IsAuthenticated {
@@ -15,7 +15,7 @@ const ProtectedRoute = props => {
   return data.authenticated ? (
     props.children
   ) : (
-      <Redirect to={"/login"} />
+    <Route exact component={() => <Redirect to="/" />} path="/login" />
   );
 };
 
