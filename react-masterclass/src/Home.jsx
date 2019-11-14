@@ -17,21 +17,26 @@ const Home = () => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
 
   return (
-    <Box
-      width="100%"
-      height="100%"
-      m={0}
-      sx={theme => ({ backgroundColor: theme.background })}
-    >
+    <>
       {data.authenticated ? (
-        <>
+        <Box
+          width="100%"
+          height="100%"
+          sx={theme => ({ backgroundColor: theme.background })}
+        >
           <Navbar />
           <Pages />
-        </>
+        </Box>
       ) : (
-        <Login />
+        <Box
+          width="100vw"
+          height="100vh"
+          sx={theme => ({ backgroundColor: theme.background })}
+        >
+          <Login />
+        </Box>
       )}
-    </Box>
+    </>
   );
 };
 
