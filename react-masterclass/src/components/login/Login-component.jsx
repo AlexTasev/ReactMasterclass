@@ -22,10 +22,16 @@ const LoginComponent = ({ login }) => {
   };
 
   return (
-    <BoxWrapper width="100%">
-      <Box backgroundColor="black" width="50%" height="100%" mx="auto" my={5}>
+    <BoxWrapper width="100%" p={0}>
+      <Box
+        backgroundColor="black"
+        width="80%"
+        height="100%"
+        mx="auto"
+        sx={{ borderRadius: 20 }}
+      >
         <Box fontSize={[4, 5, 6, 7, 8]}>
-          <Logo fontSize={[8, 9, 10]} mx="auto" />
+          <Logo fontSize={[8, 9, 10]} mx="auto" textAlign="center" />
         </Box>
         {credentialsError && <Box>Invalid credentials!</Box>}
         <Box
@@ -59,8 +65,10 @@ const LoginComponent = ({ login }) => {
               placeholder="password"
               onChange={e => setUserPassword(e.target.value)}
             />
-            <Box alignItems="right" px="auto">
-              <ButtonSW type="submit">Login</ButtonSW>
+            <Box px="auto">
+              <ButtonSW type="submit" textAlign="right" mb={3}>
+                Login
+              </ButtonSW>
             </Box>
           </Flex>
         </Box>
