@@ -1,0 +1,4 @@
+[build]
+base = "/react-masterclass/"
+publish = "/build/"
+command = "npm run ci && npm run build"

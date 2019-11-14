@@ -12,7 +12,6 @@ const CharacterDetailsComponent = ({
   return (
     <BoxWrapper height="100vh">
       <HeadingH1>{name}</HeadingH1>
-      <hr sx={theme => theme.lineColor} />
       <Tiles columns={[1, 2]} mt={4}>
         <CardDetails>
           <HeadingH3 py={3}>{name}</HeadingH3>
@@ -39,7 +38,6 @@ const CharacterDetailsComponent = ({
         </CardDetails>
         <Box p={3}>
           <HeadingH2>Piloted Starships</HeadingH2>
-          <hr sx={theme => theme.lineColor} />
           <Box p={3}>
             {starships.edges.map(({ node: starship }) => (
               <LinkWrapper

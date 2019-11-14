@@ -41,7 +41,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.{js,json,css,scss}",
-    "ci": "yarn lint && cross-env CI=true yarn test --coverage",
+    "ci": "npm lint && cross-env CI=true npm test --coverage",
     "swapp": "start-swapp -p 9009 -s public",
     "build-swapp": "build-swapp -s public"
   },
@@ -54,10 +54,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/**/*.jsx": [
       "prettier --write",
       "eslint --max-warnings=20",
-      "yarn test --bail --findRelatedTests",
+      "npm test --bail --findRelatedTests",
       "git add"
     ]
   },
