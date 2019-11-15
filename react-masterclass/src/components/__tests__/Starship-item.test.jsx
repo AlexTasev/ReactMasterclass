@@ -2,15 +2,14 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import '../../setupTests';
 import { shallow } from 'enzyme';
-import Episode from '../episodes/Episode-details';
+import StarshipItemComponent from '../starships/Starship-item-component';
 
-describe('Episode details component renders', () => {
+describe('Starship item component renders', () => {
   it('renders without crashing', () => {
     const container = shallow(
       <BrowserRouter>
-        <Episode />
+        <StarshipItemComponent />
       </BrowserRouter>,
     );
-    expect(container.exists()).toBe(true);
   });
 });

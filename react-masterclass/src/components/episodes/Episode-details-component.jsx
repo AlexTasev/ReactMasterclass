@@ -41,8 +41,8 @@ const EpisodeDetailsComponent = ({
       </Box>
 
       <Box
-        my={30}
-        p={30}
+        my={[0, 10, 20, 30]}
+        p={[0, 10, 20, 30]}
         sx={theme => ({
           color: theme.fontColor,
           backgroundColor: theme.cardBackground,
