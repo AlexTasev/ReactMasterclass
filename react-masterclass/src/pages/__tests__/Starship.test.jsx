@@ -4,7 +4,7 @@ import '../../setupTests';
 import { shallow } from 'enzyme';
 import Starship from '../starships/Starship';
 
-describe('Episodes component renders', () => {
+describe('Starship component renders', () => {
   it('renders without crashing', () => {
     const container = shallow(
       <BrowserRouter>

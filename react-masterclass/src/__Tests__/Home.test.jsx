@@ -4,7 +4,7 @@ import '../setupTests';
 import { shallow } from 'enzyme';
 import Home from '../Home';
 
-describe('Episodes component renders', () => {
+describe('Home component renders', () => {
   it('renders without crashing', () => {
     const container = shallow(
       <BrowserRouter>

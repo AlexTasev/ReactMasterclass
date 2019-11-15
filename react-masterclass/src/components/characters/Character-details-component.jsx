@@ -4,7 +4,7 @@ import { Tiles } from '@rebass/layout';
 import { InlineName, InlineValue } from '../common/InlineText';
 import { HeadingH1, HeadingH2, HeadingH3 } from '../common/Headings';
 import { BoxWrapper, LinkWrapper, CardDetails } from '../common/Containers';
-import StarshipItemComponent from '../starships/Starship-item-comonent';
+import StarshipItemComponent from '../starships/Starship-item-component';
 
 const CharacterDetailsComponent = ({
   character: { name, image, height, mass, species, homeworld, starships },

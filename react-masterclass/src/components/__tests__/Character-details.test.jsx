@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import '../../setupTests';
 import { shallow } from 'enzyme';
-import Episode from '../episodes/Episode-details';
+import CharacterDetailsComponent from '../characters/Character-details-component';
 
-describe('Episode details component renders', () => {
+describe('Character details component renders', () => {
   it('renders without crashing', () => {
     const container = shallow(
       <BrowserRouter>
-        <Episode />
+        <CharacterDetailsComponent />
       </BrowserRouter>,
     );
     expect(container.exists()).toBe(true);

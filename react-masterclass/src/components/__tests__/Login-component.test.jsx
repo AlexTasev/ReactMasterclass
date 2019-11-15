@@ -4,7 +4,7 @@ import '../../setupTests';
 import { shallow } from 'enzyme';
 import LoginComponent from '../login/Login-component';
 
-describe('Episodes component renders', () => {
+describe('Login component renders', () => {
   it('renders without crashing', () => {
     const container = shallow(
       <BrowserRouter>
