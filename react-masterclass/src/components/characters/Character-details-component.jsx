@@ -10,7 +10,7 @@ const CharacterDetailsComponent = ({
   character: { name, image, height, mass, species, homeworld, starships },
 }) => {
   return (
-    <BoxWrapper height="100vh">
+    <BoxWrapper>
       <HeadingH1>{name}</HeadingH1>
       <Tiles columns={[1, 2]} mt={4}>
         <CardDetails>

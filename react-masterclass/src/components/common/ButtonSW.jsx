@@ -5,7 +5,9 @@ const ButtonSW = props => {
   return (
     <Button
       {...props}
-      p={3}
+      px={[1, 2, 3]}
+      py={[1, 2]}
+      fontSize={[1, 2, 3]}
       sx={theme => ({
         color: theme.buttonFontColor,
         backgroundColor: theme.buttonBackground,

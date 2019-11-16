@@ -24,10 +24,11 @@ export const BoxWrapper = props => {
   return (
     <Box
       {...props}
-      width={[300, 400, 600, 800, 1000]}
+      width={[400, 600, 800, 1000]}
+      height="100%"
       mx="auto"
-      mt={[0, 1, 2, 4]}
-      pb={[0, 1, 2, 3]}
+      mt={[1, 2, 4]}
+      pb={[1, 2, 3]}
     ></Box>
   );
 };

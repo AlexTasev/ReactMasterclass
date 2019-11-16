@@ -14,7 +14,7 @@ const EpisodeDetailsComponent = ({
   loadMoreCharacters,
 }) => {
   return (
-    <BoxWrapper height="100%">
+    <BoxWrapper>
       <Box
         sx={theme => ({
           backgroundColor: theme.cardBackground,
@@ -41,8 +41,8 @@ const EpisodeDetailsComponent = ({
       </Box>
 
       <Box
-        my={[0, 10, 20, 30]}
-        p={[0, 10, 20, 30]}
+        my={[10, 20, 30]}
+        p={[10, 20, 30]}
         sx={theme => ({
           color: theme.fontColor,
           backgroundColor: theme.cardBackground,
