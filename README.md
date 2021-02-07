@@ -39,8 +39,8 @@ If the user is not registered, he is always redirected to the login page.
 ### 2. Routes that require authentication
 If the user has been registered, he can see the following pages:
 
-+ :/episodes 
-+ :/episodes/id, 
-+ :/characters, 
-+ :/characters/id
-+ :/starships/id
++ /episodes 
++ /episodes/:id, 
++ /characters, 
++ /characters/:id
++ /starships/:id
