@@ -1,7 +1,7 @@
 # ReactMasterclass
 
 ## Description
-This project is built for Advanced React course at SoftUni. Interesting Star Wars data is fetched from GraphQL Server, provided by ST6 and located at: https://swapp.st6.io/graphql via Apollo Client.
+This project is built for Advanced React course at SoftUni. Interesting Star Wars data is fetched from GraphQL Server, provided by ST6 and located at: https://swapp.st6.io/graphql.
 
 ## Authorisation
 
@@ -43,4 +43,4 @@ If the user has been registered, he can see the following pages:
 + :/episodes/id, 
 + :/characters, 
 + :/characters/id
-+ + :/starships/id
++ :/starships/id
