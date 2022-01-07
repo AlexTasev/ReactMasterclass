@@ -16,13 +16,13 @@ For Login, use the following credentials:
 The user can choose between light and dark theme.
 
 ### 2. Error handling
-If there is some kind of an error during login, an appropriate info message is shown on the frontend (‘Invalid Credentials’)
+If there is some kind of an error during login, an appropriate info message is shown on the frontend (‘Invalid Credentials’).
 
 ### 3. Responsive design
-The app is fully responsive. Custom mobile menu toggle functionality is implemented
+The app is fully responsive. Custom mobile menu toggle functionality is implemented.
 
 ### 4. Pagination 
-The app has pagination that loads more data wherever applicable (List characters page and in Single episode page)
+The app has pagination that loads more data wherever applicable (List characters page and in Single episode page).
 
 ## Testing
 
@@ -39,8 +39,8 @@ If the user is not registered, he is always redirected to the login page.
 ### 2. Routes that require authentication
 If the user has been registered, he can see the following pages:
 
-+ :/episodes 
-+ :/episodes/id, 
-+ :/characters, 
-+ :/characters/id
-+ :/starships/id
++ /episodes 
++ /episodes/:id
++ /characters
++ /characters/:id
++ /starships/:id
